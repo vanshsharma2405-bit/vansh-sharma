@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COACH® | Handbags, Wallets, Clothing, Menswear, Shoes & More</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #000;
+            background: #fff;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 40px;
+            font-size: 13px;
+        }
+
+        .header-top a {
+            color: #000;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 600px;
+            padding: 40px;
+        }
+
+        .hero h2 {
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: 2px solid #000;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #000;
+        }
+
+        .btn-secondary:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Category Grid */
+        .category-grid {
+            padding: 60px 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 3/4;
+            background: #f5f5f5;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-overlay h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Featured Section */
+        .featured {
+            background: #f9f9f9;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .featured h2 {
+            font-size: 40px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 40px auto 0;
+        }
+
+        .featured-item {
+            background: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .featured-item h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .featured-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(90deg, #2c2c2c 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .banner-content {
+            z-index: 2;
+        }
+
+        .banner h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: #000;
+            color: #fff;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-top {
+                padding: 12px 20px;
+                font-size: 11px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 15px 20px;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .category-grid,
+            .featured,
+            .newsletter,
+            footer {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .banner h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        Free Shipping on Orders $150+ | Easy Returns
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div>
+                <a href="#">United States</a>
+                <a href="#">Store Locator</a>
+            </div>
+            <div>
+                <a href="#">Wishlist</a>
+                <a href="#">My Account</a>
+                <a href="#">View Bag (0)</a>
+            </div>
+        </div>
+
+        <div class="logo">
+            <h1>COACH</h1>
+        </div>
+
+        <nav>
+            <a href="#">Women</a>
+            <a href="#">Men</a>
+            <a href="#">Bags</a>
+            <a href="#">New</a>
+            <a href="#">Gifts</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Start fresh.</h2>
+            <p>With the new Chelsea bag by your side.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Shop Women's</a>
+                <a href="#" class="btn btn-secondary">Shop Bags</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Grid -->
+    <section class="category-grid">
+        <h2 class="section-title">More ways to refresh your look.</h2>
+        <div class="grid">
+            <div class="category-card">
+                <img src="https://via.placeholder.com/400x600/e8dfd3/000?text=Shoulder+Bags" alt="Shoulder Bags">
+                <div class="category-overlay">
+                    <h3>Shop Shoulder Bags</h3>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://via.placeholder.com/400x600/f5f0e8/000?text=Bestsellers" alt="Bestsellers">
+                <div class="category-overlay">
+                    <h3>Shop Bestsellers</h3>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://via.placeholder.com/400x600/e8dfd3/000?text=Tabby" alt="Tabby">
+                <div class="category-overlay">
+                    <h3>Shop Tabby</h3>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://via.placeholder.com/400x600/f5f0e8/000?text=Wallets" alt="Wallets">
+                <div class="category-overlay">
+                    <h3>Shop Wallets</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured">
+        <h2>Getting all the love.</h2>
+        <p>Trending and top-selling styles for spring.</p>
+        <div class="featured-grid">
+            <div class="featured-item">
+                <h3>Shop Trending Now</h3>
+                <p>Discover what everyone's talking about this season.</p>
+            </div>
+            <div class="featured-item">
+                <h3>Shop New Arrivals</h3>
+                <p>Be the first to explore our latest collection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Redefine style on and off the court.</h2>
+            <a href="#" class="btn btn-primary">Meet the Draftees</a>
+        </div>
+    </section>
+
+    <!-- Another Featured Section -->
+    <section class="featured">
+        <h2>Your ultimate destination for the latest trends, style tips and more.</h2>
+        <div class="featured-grid">
+            <div class="featured-item">
+                <h3>Explore Our Bag Guides</h3>
+                <p>Find the perfect bag for every occasion.</p>
+            </div>
+            <div class="featured-item">
+                <h3>Introducing Omar Apollo</h3>
+                <p>Our newest ambassador brings fresh style to Coach.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Discover our new chapter (as soon as it drops).</h2>
+        <p>Sign up for exclusive updates and special offers.</p>
+        <a href="#" class="btn btn-primary">Sign Up for Emails</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>About Coach</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Coach IP Holdings LLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
